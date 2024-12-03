@@ -56,7 +56,6 @@ class EmailSender:
         except Exception as e:
             print(f'Error sending email: {str(e)}')
 
-# Example usage
 if __name__ == '__main__':
     sender = EmailSender()
     sender.send_email_with_attachment(
