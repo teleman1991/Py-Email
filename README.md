@@ -1,1 +1,49 @@
-IyBQeS1FbWFpbAoKQSBQeXRob24gc2NyaXB0IGZvciBzZW5kaW5nIGVtYWlscyB3aXRoIGF0dGFjaG1lbnRzIHVzaW5nIE1pY3Jvc29mdCBHcmFwaCBBUEkuCgojIyBQcmVyZXF1aXNpdGVzCgoxLiBBenVyZSBBRCBBcHAgUmVnaXN0cmF0aW9uIHdpdGggZm9sbG93aW5nIHBlcm1pc3Npb25zOgogICAtIE1haWwuU2VuZAogICAtIE1haWwuUmVhZFdyaXRlCgoyLiBSZXF1aXJlZCBQeXRob24gcGFja2FnZXM6CiAgIGBgYGJhc2gKICAgcGlwIGluc3RhbGwgYXp1cmUtaWRlbnRpdHkgbXNncmFwaC1jb3JlCiAgIGBgYAoKIyMgRW52aXJvbm1lbnQgU2V0dXAKCkNyZWF0ZSBhIGAuZW52YCBmaWxlIHdpdGggeW91ciBBenVyZSBjcmVkZW50aWFsczoKYGBgCkFaVVJFX0NMSUVOVF9JRD15b3VyX2NsaWVudF9pZApBWlVSRV9URU5BTlRfSUQ9eW91cl90ZW5hbnRfaWQKQVpVUkVfQ0xJRU5UX1NFQ1JFVD15b3VyX2NsaWVudF9zZWNyZXQKYGBgCgojIyBVc2FnZQoKMS4gSW1wb3J0IHRoZSBFbWFpbFNlbmRlciBjbGFzczoKYGBgcHl0aG9uCmZyb20gc2VuZF9lbWFpbCBpbXBvcnQgRW1haWxTZW5kZXIKYGBgCgoyLiBDcmVhdGUgYW4gaW5zdGFuY2UgYW5kIHNlbmQgZW1haWw6CmBgYHB5dGhvbgpzZW5kZXIgPSBFbWFpbFNlbmRlcigpCnNlbmRlci5zZW5kX2VtYWlsX3dpdGhfYXR0YWNobWVudCgKICAgIHRvX2VtYWlsPSdyZWNpcGllbnRAZXhhbXBsZS5jb20nLAogICAgc3ViamVjdD0nVGVzdCBFbWFpbCcsCiAgICBib2R5PSdFbWFpbCBjb250ZW50JywKICAgIGZpbGVfcGF0aD0ncGF0aC90by9maWxlLnR4dCcKKQpgYGAKCiMjIEZlYXR1cmVzCi0gU2VuZCBlbWFpbHMgd2l0aCBhdHRhY2htZW50cwotIFNlY3VyZSBhdXRoZW50aWNhdGlvbiB1c2luZyBBenVyZSBBRAotIFNpbXBsZSBhbmQgcmV1c2FibGUgY29kZQoKIyMgRXJyb3IgSGFuZGxpbmcKVGhlIHNjcmlwdCBpbmNsdWRlcyBiYXNpYyBlcnJvciBoYW5kbGluZyBhbmQgd2lsbCBwcmludCBlcnJvciBtZXNzYWdlcyBpZiBzb21ldGhpbmcgZ29lcyB3cm9uZyBkdXJpbmcgdGhlIGVtYWlsIHNlbmRpbmcgcHJvY2Vzcy4=
+# Py-Email
+
+A Python script for sending emails with attachments using Microsoft Graph API.
+
+## Prerequisites
+
+1. Azure AD App Registration with following permissions:
+   - Mail.Send
+   - Mail.ReadWrite
+
+2. Required Python packages:
+   ```bash
+   pip install azure-identity msgraph-core
+   ```
+
+## Environment Setup
+
+Create a `.env` file with your Azure credentials:
+```
+AZURE_CLIENT_ID=your_client_id
+AZURE_TENANT_ID=your_tenant_id
+AZURE_CLIENT_SECRET=your_client_secret
+```
+
+## Usage
+
+1. Import the EmailSender class:
+```python
+from send_email import EmailSender
+```
+
+2. Create an instance and send email:
+```python
+sender = EmailSender()
+sender.send_email_with_attachment(
+    to_email='recipient@example.com',
+    subject='Test Email',
+    body='Email content',
+    file_path='path/to/file.txt'
+)
+```
+
+## Features
+- Send emails with attachments
+- Secure authentication using Azure AD
+- Simple and reusable code
+
+## Error Handling
+The script includes basic error handling and will print error messages if something goes wrong during the email sending process.
